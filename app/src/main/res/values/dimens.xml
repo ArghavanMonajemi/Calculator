@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="ButtonTextSize" >16sp</dimen>
+    <dimen name="ButtonPadding" >15dp</dimen>
+    <dimen name="ButtonMargin" >5dp</dimen>
+    <dimen name="ResultTextSize" >25sp</dimen>
+    <dimen name="HistoryTextSize" >20sp</dimen>
+</resources>

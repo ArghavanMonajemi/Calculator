@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:layout_weight="1">
+
+        <TextView
+            style="@style/HistoryTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/result"
+            android:gravity="end" />
+
+        <TextView
+            android:id="@+id/result"
+            style="@style/DayResultTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="end" />
+    </RelativeLayout>
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1">
+
+        <TableRow>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/clear_button"
+                style="@style/ClearButton"
+                android:layout_weight="2"
+                android:text="@string/clear" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/remain_button"
+                style="@style/ClearButton"
+                android:text="@string/remain" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/division_button"
+                style="@style/OperatorsButton"
+                android:text="@string/division" />
+        </TableRow>
+
+        <TableRow>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/seven_button"
+                style="@style/DayNumberButton"
+                android:text="@string/seven" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/eight_button"
+                style="@style/DayNumberButton"
+                android:text="@string/eight" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/nine_button"
+                style="@style/DayNumberButton"
+                android:text="@string/nine" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/multiplication_button"
+                style="@style/OperatorsButton"
+                android:text="@string/multiplication" />
+        </TableRow>
+
+        <TableRow>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/four_button"
+                style="@style/DayNumberButton"
+                android:text="@string/four" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/five_button"
+                style="@style/DayNumberButton"
+                android:text="@string/five" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/six_button"
+                style="@style/DayNumberButton"
+                android:text="@string/six" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/minus_button"
+                style="@style/OperatorsButton"
+                android:text="@string/minus" />
+        </TableRow>
+
+        <TableRow>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/three_button"
+                style="@style/DayNumberButton"
+                android:text="@string/three" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/two_button"
+                style="@style/DayNumberButton"
+                android:text="@string/two" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/one_button"
+                style="@style/DayNumberButton"
+                android:text="@string/one" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/plus_button"
+                style="@style/OperatorsButton"
+                android:text="@string/plus" />
+        </TableRow>
+
+        <TableRow>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/dot_button"
+                style="@style/OperatorsButton"
+                android:text="@string/dot" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/zero_button"
+                style="@style/DayNumberButton"
+                android:text="@string/zero" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/equal_button"
+                style="@style/OperatorsButton"
+                android:layout_weight="2"
+                android:text="@string/equal" />
+        </TableRow>
+    </TableLayout>
+</LinearLayout>
