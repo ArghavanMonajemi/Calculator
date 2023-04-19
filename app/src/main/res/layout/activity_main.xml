@@ -58,17 +58,17 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/seven_button"
-                style="@style/DayNumberButton"
+                style="@style/NumberButton"
                 android:text="@string/seven" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/eight_button"
-                style="@style/DayNumberButton"
+                style="@style/NumberButton"
                 android:text="@string/eight" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/nine_button"
-                style="@style/DayNumberButton"
+                style="@style/NumberButton"
                 android:text="@string/nine" />
 
             <com.google.android.material.button.MaterialButton
@@ -81,17 +81,17 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/four_button"
-                style="@style/DayNumberButton"
+                style="@style/NumberButton"
                 android:text="@string/four" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/five_button"
-                style="@style/DayNumberButton"
+                style="@style/NumberButton"
                 android:text="@string/five" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/six_button"
-                style="@style/DayNumberButton"
+                style="@style/NumberButton"
                 android:text="@string/six" />
 
             <com.google.android.material.button.MaterialButton
@@ -104,17 +104,17 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/three_button"
-                style="@style/DayNumberButton"
+                style="@style/NumberButton"
                 android:text="@string/three" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/two_button"
-                style="@style/DayNumberButton"
+                style="@style/NumberButton"
                 android:text="@string/two" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/one_button"
-                style="@style/DayNumberButton"
+                style="@style/NumberButton"
                 android:text="@string/one" />
 
             <com.google.android.material.button.MaterialButton
@@ -132,7 +132,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/zero_button"
-                style="@style/DayNumberButton"
+                style="@style/NumberButton"
                 android:text="@string/zero" />
 
             <com.google.android.material.button.MaterialButton

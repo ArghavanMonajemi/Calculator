@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.Calculator" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
@@ -6,8 +6,9 @@
         <item name="colorPrimaryVariant">@color/variant</item>
         <item name="colorOnPrimary">@color/night_primary</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!--views custom style-->
+        <item name="android:textViewStyle">@style/DayResultTextView</item>
     </style>
 
     <style name="Button">
@@ -17,7 +18,7 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="DayNumberButton" parent="Button">
+    <style name="NumberButton" parent="Button">
         <item name="backgroundTint">@color/day_numbers_background</item>
         <item name="android:textColor">@color/night_primary</item>
     </style>
