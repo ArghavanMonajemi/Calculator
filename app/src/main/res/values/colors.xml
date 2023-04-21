@@ -7,4 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="day_primary">#f1f1f1</color>
+    <color name="night_primary">#313744</color>
+    <color name="variant">#c57f00</color>
+    <color name="day_numbers_background">#cfcbd1</color>
+    <color name="night_numbers_background">#343f60</color>
+    <color name="clear_btn_background">#8f8d8a</color>
 </resources>
