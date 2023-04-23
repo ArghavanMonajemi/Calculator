@@ -14,6 +14,7 @@
         android:layout_weight="1">
 
         <TextView
+            android:id="@+id/history"
             style="@style/HistoryTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -103,9 +104,9 @@
         <TableRow>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/three_button"
+                android:id="@+id/one_button"
                 style="@style/NumberButton"
-                android:text="@string/three" />
+                android:text="@string/one" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/two_button"
@@ -113,9 +114,9 @@
                 android:text="@string/two" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/one_button"
+                android:id="@+id/three_button"
                 style="@style/NumberButton"
-                android:text="@string/one" />
+                android:text="@string/three" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/plus_button"
