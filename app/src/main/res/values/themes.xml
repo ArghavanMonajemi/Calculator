@@ -33,6 +33,27 @@
         <item name="android:textColor">@color/day_primary</item>
     </style>
 
+    <style name="ButtonLandscape">
+        <item name="android:textSize">@dimen/ButtonTextSize</item>
+        <item name="android:layout_margin">@dimen/ButtonMarginLandscape</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="NumberButtonLandscape" parent="ButtonLandscape">
+        <item name="backgroundTint">@color/day_numbers_background</item>
+        <item name="android:textColor">@color/night_primary</item>
+    </style>
+
+    <style name="OperatorsButtonLandscape" parent="ButtonLandscape">
+        <item name="backgroundTint">@color/variant</item>
+        <item name="android:textColor">@color/day_primary</item>
+    </style>
+
+    <style name="ClearButtonLandscape" parent="ButtonLandscape">
+        <item name="backgroundTint">@color/clear_btn_background</item>
+        <item name="android:textColor">@color/day_primary</item>
+    </style>
+
     <style name="DayResultTextView">
         <item name="android:textColor">@color/night_primary</item>
         <item name="android:textSize">@dimen/ResultTextSize</item>
