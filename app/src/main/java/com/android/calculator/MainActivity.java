@@ -9,10 +9,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.android.calculator.databinding.ActivityMainBinding;
 import com.google.android.material.button.MaterialButton;
 
+import java.text.NumberFormat;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private double finalResult = 0;
     private String operation, number = "";
+    private final NumberFormat formatter = NumberFormat.getNumberInstance();
     ActivityMainBinding binding;
 
     @Override
@@ -24,27 +27,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (savedInstanceState != null) {
             binding.result.setText(savedInstanceState.getString(getString(R.string.saved_result_key), ""));
-            binding.history.setText(savedInstanceState.getString(getString(R.string.saved_history_key), ""));
+            binding.calculation.setText(savedInstanceState.getString(getString(R.string.saved_history_key), ""));
             finalResult = Double.parseDouble(savedInstanceState.getString(getString(R.string.saved_result_key), "0"));
         }
 
         binding.clearButton.setOnClickListener(v -> {
-            binding.history.setText("");
+            binding.calculation.setText("");
             binding.result.setText("");
             finalResult = 0;
             number = "";
         });
         binding.backButton.setOnClickListener(v -> {
-            if (number.length() > 1)
-                number = number.substring(0, number.length() - 2);
-            else number = "";
+            if (binding.result.getText().toString().isEmpty()||binding.calculation.getText().toString().contains("=")||number.isEmpty()||number.equals("0"))
+                return;
+            if (number.length()>1)
+            number=number.substring(0,number.length()-1);
+            else
+                number="0";
+            binding.result.setText(formatter.format(Double.parseDouble(number)));
         });
         binding.dotButton.setOnClickListener(v -> {
             if (!number.contains(".")) {
                 if (number.isEmpty())
                     number = "0";
                 number = number + ".";
-                binding.history.setText(String.format("%s%s", binding.history.getText(), number));
+                binding.calculation.setText(String.format("%s%s", binding.calculation.getText().toString(), number));
             }
         });
         binding.equalButton.setOnClickListener(this);
@@ -68,31 +75,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString(getString(R.string.saved_history_key), binding.history.getText().toString());
+        outState.putString(getString(R.string.saved_history_key), binding.calculation.getText().toString());
         outState.putString(getString(R.string.saved_result_key), binding.result.getText().toString());
     }
 
     @Override
     public void onClick(View v) {
-        String historyText = binding.history.getText().toString();
         String input = ((MaterialButton) v).getText().toString();
-        binding.history.setText(String.format("%s%s", historyText, input));
-        if (input.charAt(0) > 47 && input.charAt(0) < 58) {
+        if (isNumber(input.charAt(0))) {
             number = number + input;
+            binding.result.setText(formatter.format(Double.parseDouble(number)));
         } else {
             if (finalResult != 0 || input.equals("=")) {
                 finalResult = calculate();
-                binding.result.setText((finalResult == (int) finalResult ? String.valueOf((int) finalResult) : String.valueOf(finalResult)));
+                binding.result.setText(formatter.format(finalResult));
             } else
                 finalResult = Double.parseDouble(number);
-            number = "0";
-            if (!input.equals("="))
+            if (!input.equals("=")) {
                 operation = input;
-            else {
+                binding.calculation.setText(String.format("%s%s", formatter.format(finalResult), operation));
+            } else {
                 operation = "";
-                binding.history.setText(String.format("%s%s", binding.history.getText().toString(), (finalResult == (int) finalResult ? String.valueOf((int) finalResult) : String.valueOf(finalResult))));
+                binding.calculation.setText(String.format("%s%s=", binding.calculation.getText().toString(), formatter.format(Double.parseDouble(number))));
             }
+            number = "0";
         }
+    }
+
+    private boolean isNumber(char input) {
+        return input > 47 && input < 58;
     }
 
     private double calculate() {

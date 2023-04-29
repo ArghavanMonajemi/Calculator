@@ -15,7 +15,7 @@
         android:layout_weight="1">
 
         <TextView
-            android:id="@+id/history"
+            android:id="@+id/calculation"
             style="@style/HistoryTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
