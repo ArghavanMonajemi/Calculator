@@ -11,8 +11,8 @@ import com.google.android.material.button.MaterialButton;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private double finalNumber = 0, finalResult = 0;
-    private String operation, number;
+    private double finalResult = 0;
+    private String operation, number = "";
     ActivityMainBinding binding;
 
     @Override
@@ -22,16 +22,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         View view = binding.getRoot();
         setContentView(view);
 
-        if (savedInstanceState!=null){
-            binding.result.setText(savedInstanceState.getString(getString(R.string.saved_result_key),""));
+        if (savedInstanceState != null) {
+            binding.result.setText(savedInstanceState.getString(getString(R.string.saved_result_key), ""));
             binding.history.setText(savedInstanceState.getString(getString(R.string.saved_history_key), ""));
-            finalResult = Double.parseDouble(savedInstanceState.getString(getString(R.string.saved_result_key),"0"));
+            finalResult = Double.parseDouble(savedInstanceState.getString(getString(R.string.saved_result_key), "0"));
         }
 
         binding.clearButton.setOnClickListener(v -> {
             binding.history.setText("");
             binding.result.setText("");
-            finalNumber = 0;
             finalResult = 0;
             number = "";
         });
@@ -39,6 +38,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (number.length() > 1)
                 number = number.substring(0, number.length() - 2);
             else number = "";
+        });
+        binding.dotButton.setOnClickListener(v -> {
+            if (!number.contains(".")) {
+                if (number.isEmpty())
+                    number = "0";
+                number = number + ".";
+                binding.history.setText(String.format("%s%s", binding.history.getText(), number));
+            }
         });
         binding.equalButton.setOnClickListener(this);
         binding.plusButton.setOnClickListener(this);
@@ -71,14 +78,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String input = ((MaterialButton) v).getText().toString();
         binding.history.setText(String.format("%s%s", historyText, input));
         if (input.charAt(0) > 47 && input.charAt(0) < 58) {
-            finalNumber = finalNumber * 10 + Integer.parseInt(input);
+            number = number + input;
         } else {
             if (finalResult != 0 || input.equals("=")) {
                 finalResult = calculate();
                 binding.result.setText((finalResult == (int) finalResult ? String.valueOf((int) finalResult) : String.valueOf(finalResult)));
             } else
-                finalResult = finalNumber;
-            finalNumber = 0;
+                finalResult = Double.parseDouble(number);
+            number = "0";
             if (!input.equals("="))
                 operation = input;
             else {
@@ -92,19 +99,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         double result;
         switch (operation) {
             case "+":
-                result = finalResult + finalNumber;
+                result = finalResult + Double.parseDouble(number);
                 break;
             case "-":
-                result = finalResult - finalNumber;
+                result = finalResult - Double.parseDouble(number);
                 break;
             case "/":
-                result = finalResult / finalNumber;
+                result = finalResult / Double.parseDouble(number);
                 break;
             case "×":
-                result = finalResult * finalNumber;
+                result = finalResult * Double.parseDouble(number);
                 break;
             case "%":
-                result = finalResult % finalNumber;
+                result = finalResult % Double.parseDouble(number);
                 break;
             default:
                 result = finalResult;
